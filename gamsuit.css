@@ -1,0 +1,21 @@
+.navbar {
+  color: yellow;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: 'Trebuchet MS';
+  margin-right: 900px;
+  display: inline-block;
+
+}
+
+.choice:hover{
+  cursor: pointer;
+}
+
+.result {
+  color: red;
+  font-size: 46px;
+  font-family: 'Trebuchet MS';
+  font-weight: bold;
+}
+
