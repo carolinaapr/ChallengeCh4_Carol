@@ -1,57 +1,77 @@
-const result_h1 = document.querySelector(".result > h1")
-const rock_div = document.getElementById("rock");
-const paper_div = document.getElementById("paper");
-const scissor_div = document.getElementById("scissor");
+//membuat variabel gameplay
+const result_h1 = document.querySelector(".result")
+const batu_div = document.getElementById("batu");
+const kertas_div = document.getElementById("kertas");
+const gunting_div = document.getElementById("gunting");
 
+//membuat variabel untuk scoring
+let playerScore = 0;
+let computerScore =0;
+const playerScore_span = document.getElementById("player-score");
+const computerScore_span = document.getElementById("computer-score");
+const scoreBoard_div = document.querySelector("score-board");
+
+//membuat pilihan random untuk komputer
 function getComputerChoice(){
-  const choices = ['rock','paper','scissor'];
+  const choices = ['batu','kertas','gunting'];
   const randomNumber = (Math.floor(Math.random()*3));
   return choices[randomNumber];
 }
 
+//memanggil fungsi saat kondisi player menang 
 function win(playerChoice,computerChoice){
-  console.log("PLAYER MENANG!")
-  result_h1.innerHTML = `Player MENANG! ${playerChoice} mengalahkan ${computerChoice}. `
+  playerScore++;
+  playerScore_span.innerHTML = playerScore;
+  computerScore_span.innerHTML= computerScore;
+  result_h1.textContent = `Player MENANG!, ${playerChoice} mengalahkan ${computerChoice}. `
 }
 
+//memanggil fungsi saat kondisi player kalah
 function lose(playerChoice,computerChoice){
-  result_h1.innerHTML = `player KALAH! ${playerChoice} tidak dapat melawan ${computerChoice}`
+  computerScore++;
+  result_h1.textContent = `player KALAH!, ${playerChoice} kalah oleh ${computerChoice}`
+  playerScore_span.innerHTML = playerScore;
+  computerScore_span.innerHTML = computerScore
 }
 
+//memanggilfungsi saat kondisi player seri dengan komputer
 function draw(playerChoice,computerChoice){
-  result_h1.innerHTML = `pertandiingan SERI!!! ${playerChoice} seimbang dengan ${computerChoice}.`
+  result_h1.textContent = `game SERI! ${playerChoice} seimbang dengan ${computerChoice}.`
 }
 
+//membuat fungsi gameplay dan kondisi permainan dengan switch case
 function gameplay (playerChoice){
   const computerChoice = getComputerChoice();
   switch(playerChoice+computerChoice){
-    case"rockscissor":
-    case"paperrock":
-    case"scissorpaper":
+    case"batugunting":
+    case"kertasbatu":
+    case"guntingkertas":
     win(playerChoice,computerChoice);
     break;
-    case"rockpaper":
-    case"paperscissor":
-    case"scissorrock":
+    case"batukertas":
+    case"kertasgunting":
+    case"guntingbatu":
     lose(playerChoice,computerChoice);
     break;
-    case"rockrock":
-    case"paperpaper":
-    case"scissorscissor":
+    case"batubatu":
+    case"kertaskertas":
+    case"guntinggunting":
     draw(playerChoice,computerChoice);
   }
 }
 
+//membuat fungsi saat mengklik dan memanggil fungsi gameplay
 function main(){
-  rock_div.addEventListener('click', function(){
-    gameplay("rock");
+  batu_div.addEventListener('click', function(){
+    gameplay("batu");
   })
-  paper_div.addEventListener('click', function(){
-    gameplay("paper");
+  kertas_div.addEventListener('click', function(){
+    gameplay("kertas");
   })
-  scissors_div.addEventListener('click', function(){
-    gameplay("scissor");
+  gunting_div.addEventListener('click', function(){
+    gameplay("gunting");
   })
 }
 
+//memanggil fungsi saat player klik
 main();

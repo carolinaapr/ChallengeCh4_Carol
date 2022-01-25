@@ -22,12 +22,19 @@
     <a class="navbar-brand" href="#" >
       <img src="./Asset/LOGO BACK.jpg" alt="" width="75" height="75" class="d-inline-block align-text-top">
     </a>
-    ROCK PAPER SCRISSOR GAME
+    ROCK PAPER SCRISSOR GAME  	
   </div>
 </nav>
 </head>
 
 <body style="background-color: #9b845f;">
+<!--menambahkan score board-->
+<div class="score-board">
+  <div id="player-label" class="badge">Player</div>
+  <div id="computer-label" class="badge">Computer</div>
+  <span id="player-score">0</span>:<span id="computer-score">0</span>
+  <h1  class="result">&#9996; &#9995; &#9994;Gunting, kertas, batu, GAMSUIT!!!</h1>
+</div>
 
 <!--Menambahkan gambar gunting kertas batu dengan GRID Styling-->
 <div class="container">
@@ -44,8 +51,8 @@
 <!--MENAMBAHKAN GUNTING KERTAS BATU PADA TAMPILAN-->
 <div class="container">
     <div class="row">
-      <div class="col choice" id="rock">
-       <img src="./Asset/batu.png" alt="" width="100px" height="100px" >
+      <div class="col" id="batu">
+       <img class="choice" src="./Asset/batu.png" alt="" width="100px" height="100px" >
       </div>
       <div class="col order-12" style="transform: translate(35%,0%);">
         <img src="./Asset/batu.png" alt="" width="100px" height="100px">
@@ -55,11 +62,11 @@
 
   <div class="container">
     <div class="row">
-      <div class="col choice" id="paper">
-        <img src="./Asset/kertas.png" alt="" width="100px" height="100px">
+      <div class="col " id="kertas">
+        <img class="choice" src="./Asset/kertas.png" alt="" width="100px" height="100px">
       </div>
       <div class="col order-1">
-        <h1 class="result">VS</h1>
+        <h1>VS</h1>
       </div>
       <div class="col order-12">
         <img src="./Asset/kertas.png" alt="" width="100px" height="100px">
@@ -69,8 +76,8 @@
 
   <div class="container">
     <div class="row">
-      <div class="col choice" id="scissor" >
-        <img src="./Asset/gunting.png" alt="" width="100px" height="100px">
+      <div class="col" id="gunting" >
+        <img class="choice" src="./Asset/gunting.png" alt="" width="100px" height="100px">
       </div>
       <div class="col order-12" style="transform: translate(35%,0%);">
         <img src="./Asset/gunting.png" alt="" width="100px" height="100px">
